@@ -1,0 +1,69 @@
+{% include 'header.html' %}
+{% with messages= get_flashed_messages() %}
+
+{% if messages %}
+    <div class="alert alert-danger" role="alert">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+    </div>
+{% endif %}
+
+{% endwith %}
+
+<br><br>
+<form method="post" action="/store" enctype="multipart/form-data" needs-validation novalidate>
+    <div class="card">
+        <div class="card-header">
+            <i class="bi bi-person-add" style="font-size: 3rem; color: rgb(237, 104, 47)"></i> 
+            <label><h3>&nbsp;&nbsp;Ingreso de empleados</h3></label>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos del empleado</h5>
+
+            <p class="card-text">
+                
+               <div class="form-group">
+                    <i class="bi bi-person-plus-fill" style="font-size: 1.5rem; color: rgb(237, 104, 47);"></i>
+                    <label for="txtNombre"><h6>Nombre</h6></label>  
+                    <input id="txtNombre" class="form-control" type="text" name="txtNombre" placeholder="Ingrese el nombre -->  ej: Jose">
+               </div>
+
+               <div class="form-group">
+                <i class="bi bi-person-plus-fill" style="font-size: 1.5rem; color: rgb(237, 104, 47);"></i>
+                <label for="txtApellido"><h6>Apellido</h6></label>
+                <input id="txtApellido" class="form-control" type="text" name="txtApellido" placeholder="Ingrese el apellido -->  ej: Gonzalez">
+               </div>
+
+               <div class="form-group">
+                <i class="bi bi-envelope-plus-fill" style="font-size: 1.5rem; color: rgb(237, 104, 47);"></i>
+                <label for="txtCorreo"><h6>Correo</h6></label>
+                <input id="txtCorreo" class="form-control" type="text" name="txtCorreo" placeholder="Ingrese el correo eléctronico -->  ej: usuario@mail.com">
+               </div>
+
+               <div class="form-group">
+                <i class="bi bi-person-bounding-box" style="font-size: 1.5rem; color: rgb(237, 104, 47);"></i>
+                <label for="txtFoto"><h6>Foto</h6></label>
+                <input id="txtFoto" class="form-control" type="file" name="txtFoto">
+               </div>
+
+               <div class="form-group">
+                <i class="bi bi-calendar-plus-fill" style="font-size: 1.5rem; color: rgb(237, 104, 47);"></i>             
+                <label for="txtFecha"><h6>Fecha de Nacimiento</h6></label>
+                <input id="txtFecha" class="form-control" type="date" name="txtFecha">
+               </div>
+
+               <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Agregar Empleado">
+                <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+               </div>
+               
+            </p>
+        </div>
+    </div>
+     
+</form>
+<br>
+
+{% include 'footer.html' %}
+
